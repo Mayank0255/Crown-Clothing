@@ -1,10 +1,11 @@
 import React from 'react';
 
-import {MenuItem} from '../menu-item/menu-item.component';
+import MenuItem from '../menu-item/menu-item.component';
+// import MenuItem from 'D:/Mayank/Projects/React Course Projects/crown-clothing/src/components/menu-item/menu-item.component.jsx';
 
 import './directory.styles.scss';
 
-export class Directory extends React.Component {
+class Directory extends React.Component {
     constructor(){
         super();
 
@@ -51,14 +52,16 @@ export class Directory extends React.Component {
         return(
             <div className="directory-menu">
                 {
-                    this.state.sections.map(({title,imageUrl,id,size}) => (
-                        <MenuItem key={id} title={title} imageUrl={imageUrl} size={size} />
+                    this.state.sections.map(({id,...otherSectionProps}) => (
+                        <MenuItem key={id} {...otherSectionProps} />
                     ))
                 }
             </div>
         )
     }
 }
+
+export default Directory;
 
 
 
